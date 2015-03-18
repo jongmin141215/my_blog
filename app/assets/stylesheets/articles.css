@@ -11,7 +11,7 @@ body {
 .index {
   height: 400px;
   width: 100%;
-  background-color: #009999;
+  background: #009999 url('IMG_4103.JPG') bottom right;
   position: absolute;
   top: -10px;
   left: -10px;
