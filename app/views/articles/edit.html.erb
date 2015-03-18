@@ -1,0 +1,12 @@
+<h1>Edit your post</h1>
+<%= simple_form_for :article, url: article_path(@article), method: :patch do |f| %>
+
+    <%= f.input :title %><br />
+    <%= f.input :content %>:<br />
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.button :submit, 'Update' %>
+
+<% end %>
+
+<%= link_to 'Back', articles_path %>
