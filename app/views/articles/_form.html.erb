@@ -1,0 +1,8 @@
+<%= simple_form_for @article, html: {class: 'form'} do |f| %>
+    <%= f.input :title %><br />
+    <%= f.input :content %><br /><br />
+    <%= f.label :image %><br />
+    <%= f.file_field :image %><br />
+    <%= f.button :submit, 'Creat a Post' %><br />
+<% end %>
+<%= link_to 'Back', articles_path %>

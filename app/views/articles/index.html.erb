@@ -19,14 +19,14 @@
   <div class="container content">
     <%= article.content %><br />
   </div> 
-  
-  <div class="container links">
-  <%= link_to 'Edit', edit_article_path(article) %> |
-  <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?'} %> |
-  <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article) %> |
-  <%= link_to 'New comment', new_article_comment_path(article) %>
+  <div class="container">
+  <%= link_to 'Edit', edit_article_path(article), class: 'links' %> |
+  <%= link_to 'Delete', article_path(article), class: 'links', method: :delete, data: { confirm: 'Are you sure?'} %> |
+  <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article), class: 'links' %> |
+  <%= link_to 'New comment', new_article_comment_path(article), class: 'links' %>
   <br /><br />
   </div>
+  
 <% end %>  
 </div>
 

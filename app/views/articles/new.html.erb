@@ -1,15 +1,6 @@
-<h1>Create a post</h1>
-
-<%= simple_form_for @article do |f| %>
-  
-    <%= f.input :title %><br />
-    <%= f.input :content %><br />
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <%= f.button :submit %><br />
-  
-  
-  <% end %>
-
-
-<%= link_to 'Back', articles_path %>
+<section class="container">
+  <h1>Create a post</h1>
+</section>
+<section class="container">
+  <%= render 'form' %>
+</section>
