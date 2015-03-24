@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav id="navbar">
+    <section class="menu">
+      <% if logged_in? %>
+        <%= link_to 'log out', root_path, method: :delete, class: 'menu-link' %>
+      <% else %>
+      <% end %>
+    </section>
+  </nav>
   <%= flash[:alert] %>
   <%= flash[:danger] %>
   <%= yield %>

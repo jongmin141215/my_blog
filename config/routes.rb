@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+
   resources :articles do 
     resources :comments
   end
   resources :users
+  post '/' => 'sessions#create'
+  delete '/' => 'sessions#destroy'
 
   root 'welcome#index'
 

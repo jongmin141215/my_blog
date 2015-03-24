@@ -1,5 +1,19 @@
 <div class="main">
-<h1>Welcome to My Blog</h1>
-<%= link_to "Visit my blog", articles_path %><br />
-<%= link_to "Sign Up", new_user_path %>
+  <div class="title">
+    <h1>Welcome to My Blog</h1>
+  </div>
+  <div class="link">
+    <%= link_to "Visit my blog", articles_path, class: 'login-link' %><br />
+    
+  </div>
+  <div class="login">
+
+    <%= simple_form_for (:session) do |f| %>
+    <%# not sure about (:session) %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.button :submit, 'Log In' %> 
+    <% end %>
+    <%= link_to "Sign Up", new_user_path, class: 'login-link' %>
+  </div>
 </div>

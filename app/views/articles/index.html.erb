@@ -1,14 +1,15 @@
-<nav class="index">
+<div class="index">
    <div class="button"><a href='articles/new'>New Post</a></div>
    <h1>This is Jongmin's Travel Blog!</h1>
    <p>This is the first Rails application Jongmin created on his own. The purpose of this blog is to practice Ruby on Rails and HTML/CSS skills. The blog includes pictures and travel stories. You can leave comments on each post. Hope you enjoy it.</p>
-</nav>
+</div>
 
 <div id="big_container">
 <div class="container text-center">
   <h1>Stories</h1>
 </div>
 <% @articles.each do |article| %>
+
   <div class="container">
     <strong><%= article.title %></strong> 
     <%= article.created_at.strftime("%m/%d/%y") %><br />
