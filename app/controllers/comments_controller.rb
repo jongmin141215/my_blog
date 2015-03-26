@@ -1,17 +1,15 @@
 class CommentsController < ApplicationController
+  before_action :get_article, only: [:index, :new, :create]
 
   def index
-    @article = Article.find(params[:article_id])
     @comments = @article.comments  
   end
 
   def new
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.new
   end
 
   def create
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.create(secure_params)
     @comment.save
 
@@ -25,6 +23,10 @@ class CommentsController < ApplicationController
   end
 
   private
+    def get_article
+      @article = Article.find(params[:article_id])
+    end
+
     def secure_params
       params.require(:comment).permit(:commenter, :body)
     end

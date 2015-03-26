@@ -18,6 +18,12 @@
   <%= flash[:alert] %>
   <%= flash[:danger] %>
   <%= yield %>
-  <footer>About Contact @ 2015 Jongmin's Travel Blog</footer>
+  <footer>
+    <p>
+      <%= link_to 'About', '#', class: 'footer-el' %>
+      <%= link_to 'Contact', '#', class: 'footer-el' %> 
+      @2015 Jongmin's Travel Blog
+    </p>
+  </footer>
 </body>
 </html>

@@ -9,8 +9,8 @@
   <h1>Stories</h1>
 </div>
 <% @articles.each do |article| %>
-
-  <div class="container">
+  <div class="article">
+  <div class="container article-title">
     <strong><%= article.title %></strong> 
     <%= article.created_at.strftime("%m/%d/%y") %><br />
   </div>
@@ -26,6 +26,7 @@
   <%= link_to pluralize(article.comments.count, 'comment'), article_comments_path(article), class: 'links' %> |
   <%= link_to 'New comment', new_article_comment_path(article), class: 'links' %>
   <br /><br />
+  </div>
   </div>
   
 <% end %>  
