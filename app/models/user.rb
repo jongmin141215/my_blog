@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   # email format validation
   validates :password, length: { minimum: 5 }
   has_secure_password
+  has_one :blog
 end

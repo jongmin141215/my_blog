@@ -1,0 +1,7 @@
+<h1>Create Your Own Blog!</h1>
+<p>You can make your own blog with one click. Share your pictures and stories with your family and friends!</p>
+<%= simple_form_for @blog do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.button :submit, 'Create your blog' %>
+<% end %>

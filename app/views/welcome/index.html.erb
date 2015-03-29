@@ -1,21 +1,19 @@
 <div class="main">
-  <div class="login-box">
-     <div class="login">
-    <%= simple_form_for (:session) do |f| %>
-    <%# not sure about (:session) %>
-      <%= f.input :email %>
-      <%= f.input :password %>
-      <%= f.button :submit, 'Log In', class: 'login-button' %> <%=   %> <%= link_to "Sign Up", new_user_path, class: 'signup-link' %> 
-    <% end %>
- 
-  </div>
-  </div>
-  <div class="title">
-    <h1>Welcome to My Blog</h1>
-  </div>
+  <form>
+    <input class="search-box form-control" type="search" placeholder="Find your friends">
+    <%# search box to serach for friends' blog %> 
+  </form>
 
-  <div class="visit-link">
-    <%= link_to "Visit my blog", articles_path, class: 'visit-link' %><br />
+  <div class="login-box">
+    <div class="login">
+      <%= simple_form_for (:session) do |f| %>
+      <%# not sure about (:session) %>
+        <%= f.input :email %>
+        <%= f.input :password %>
+        <%= f.button :submit, 'Log In', class: 'login-button' %> <%=   %> <%= link_to "Sign Up", new_user_path, class: 'signup-link' %> 
+      <% end %>
+    </div>
   </div>
- 
+    <p>This is the first Rails application Jongmin created on his own. The purpose of this blog is to practice Ruby on Rails and HTML/CSS skills. The blog includes pictures and travel stories. You can leave comments on each post. Hope you enjoy it.</p>
 </div>
+

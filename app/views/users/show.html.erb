@@ -1,4 +1,9 @@
-<h1><%= @user.name %></h1><br /> 
+<h1>Welcome <%= @user.name.capitalize %>!</h1><br /> 
+<form>
+  Find your friends' blog. Type your friend's email address in the box. Read your friend's story and leave a comment!<br />
+  <input class="search-box form-control" type="search" placeholder="Find your friends">
+  <%# search box to serach for friends' blog %> 
+</form>
+<p>You have no blog yet? Click the button to create your own blog.</p>
+<%= link_to 'Go create a blog', blogs_new_path %>
 
-<h2><%= @user.email %></h2>
-<%# link_to somewhere %>

@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
 
-  resources :articles do 
-    resources :comments
+  get 'blogs/new'
+  #get '/blogs/:id' => 'articles#index'
+
+  resources :blogs do 
+    resources :articles do 
+      resources :comments
+    end
   end
   resources :users
+  post '/blogs/new' => 'blogs#create'
+  post '/blogs/:id/articles/new' => 'articles#create'
   post '/' => 'sessions#create'
   delete '/' => 'sessions#destroy'
 

@@ -1,11 +1,10 @@
 <div class="container">
-<h1>Sign Up</h1>
-
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name %><br />
-  <%= f.input :email %><br />
-  <%= f.input :password %><br />
-  <%= f.input :password_confirmation %><br />
-  <%= f.button :submit %><br />
-<% end %>
+  <h1>Sign Up</h1>
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :name %><br />
+    <%= f.input :email %><br />
+    <%= f.input :password %><br />
+    <%= f.input :password_confirmation %><br />
+    <%= f.button :submit %><br />
+  <% end %>
 </div>

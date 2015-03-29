@@ -3,20 +3,22 @@ class ArticlesController < ApplicationController
 
   
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @blog = Blog.find(params[:blog_id])
+    @articles = @blog.articles.order(created_at: :desc)
   end
 
   def new
+    @blog = Blog.find(params[:blog_id])
     @article = Article.new
   end
 
   def create
+    @blog = Blog.find(params[:blog_id])
     @article = Article.new(article_params)
-    
+    @article[:blog_id] = @blog.id
     if @article.save
       flash[:alert] = "An article is successfully created."
-      redirect_to articles_path
-      
+      redirect_to blog_articles_path(@blog)
     else
       render 'new'
     end
@@ -31,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to blog_articles_path(@blog)
     else
       render 'edit'
     end
