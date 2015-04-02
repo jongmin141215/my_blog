@@ -12,13 +12,18 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = @blog.articles.new(article_params)
-    #@article[:blog_id] = @blog.id
-    if @article.save
-      flash[:alert] = "An article is successfully created."
+    current_user
+    unless @current_user.blog == @blog
+      flash[:alert] = "You can't create a post on someone else's blog."
       redirect_to blog_articles_path(@blog)
     else
-      render 'new'
+      @article = @blog.articles.new(article_params)
+        if @article.save
+          flash[:alert] = "An article is successfully created."
+          redirect_to blog_articles_path(@blog)
+        else
+          render 'new'
+        end
     end
   end
 
