@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
+
+  def index
+    if params[:search].present?
+      @users = User.search(params[:search]).order(created_at: :desc)
+      @blog = Blog.find_by(user_id: @users[0].id)
+    end
+  end
+
   def new
     @user = User.new
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -11,6 +20,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
   def show
     @user = User.find(params[:id])
   end

@@ -9,13 +9,14 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
-  resources :users
+  resources :users, except: :index
   post '/blogs/new' => 'blogs#create'
   post '/blogs/:id/articles/new' => 'articles#create'
   post '/' => 'sessions#create'
   delete '/' => 'sessions#destroy'
 
-  root 'welcome#index'
+
+  root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

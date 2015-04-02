@@ -6,5 +6,6 @@ class CreateImages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    change_column :images, :description, :text
   end
 end

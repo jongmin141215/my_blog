@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328003111) do
+ActiveRecord::Schema.define(version: 20150401174511) do
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
+    t.text     "title"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150328003111) do
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
+    t.text     "commenter"
     t.text     "body"
     t.integer  "article_id"
     t.datetime "created_at", null: false
@@ -43,19 +43,18 @@ ActiveRecord::Schema.define(version: 20150328003111) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
   create_table "images", force: :cascade do |t|
-    t.string   "description"
+    t.text     "description"
     t.binary   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+    t.text     "name"
+    t.text     "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-    t.integer  "blog_id"
+    t.text     "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

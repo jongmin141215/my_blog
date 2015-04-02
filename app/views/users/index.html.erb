@@ -1,8 +1,16 @@
 <div class="main">
-  <form>
-    <input class="search-box form-control" type="search" placeholder="Find your friends">
-    <%# search box to serach for friends' blog %> 
-  </form>
+  <%= form_tag root_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: 'Find your friend', type: :search, class: 'search-box' %>
+      <%= submit_tag 'Submit', name: nil, class: 'login-button' %>
+    </p>
+  <% end %>
+  <% unless @users.nil? %>
+    <% @users.each do |user| %>
+      <%= link_to user.name, blog_articles_path(@blog) %><br>
+    <% end %>
+
+  <% end %>
 
   <div class="login-box">
     <div class="login">

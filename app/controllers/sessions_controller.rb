@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
       @blog = Blog.find_by(user_id: @user.id)
       if @blog
         redirect_to blog_articles_path(@blog)
-        # redirect_to a person's blog page with articles
       else
         redirect_to @user
       end
     else
       flash.now[:danger] = 'Invalid email/passowrd combination'
-      render '/welcome/index'
+      redirect_to root_path
     end
   end
 

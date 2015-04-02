@@ -1,17 +1,23 @@
 class BlogsController < ApplicationController
+  helper SessionsHelper
+  before_action :logged_in_user, only: :create
+
   def new
     @blog = Blog.new
   end
   def create
-    @user = User.where(id: session[:user_id])
-    @blog = Blog.new(blog_params)
-    @blog[:user_id] = session[:user_id]
-    @user[0][:blog_id] = @blog.id
-
-    if @blog.save
+    current_user
+    if @current_user.blog.nil?
+      @blog = @current_user.build_blog(blog_params) 
+      if @blog.save
       redirect_to blog_articles_path(@blog)
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:alert] = 'You already have a blog.'
+      @blog = @current_user.blog
+      redirect_to blog_articles_path(@blog)
     end
   end
 
@@ -20,7 +26,16 @@ class BlogsController < ApplicationController
   end
 
   private
+
     def blog_params
-      params.require(:blog).permit(:title, :description, :user_id)
+      params.require(:blog).permit(:title, :description)
     end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = 'Please log in.'
+        redirect_to root_path
+      end
+    end
+
 end

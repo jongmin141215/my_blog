@@ -6,5 +6,6 @@ class CreateArticles < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    change_column :articles, :title, :text
   end
 end

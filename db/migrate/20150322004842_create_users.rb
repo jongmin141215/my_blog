@@ -6,5 +6,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    change_column :users, :name, :text
+    change_column :users, :email, :text
   end
 end

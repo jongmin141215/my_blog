@@ -1,21 +1,19 @@
 class ArticlesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :update, :destroy]
+  before_action :get_blog, only: [:index, :new, :create]
   before_action :get_article, only: [:show, :edit, :update, :destroy]
-
   
   def index
-    @blog = Blog.find(params[:blog_id])
     @articles = @blog.articles.order(created_at: :desc)
   end
 
   def new
-    @blog = Blog.find(params[:blog_id])
     @article = Article.new
   end
 
   def create
-    @blog = Blog.find(params[:blog_id])
-    @article = Article.new(article_params)
-    @article[:blog_id] = @blog.id
+    @article = @blog.articles.new(article_params)
+    #@article[:blog_id] = @blog.id
     if @article.save
       flash[:alert] = "An article is successfully created."
       redirect_to blog_articles_path(@blog)
@@ -51,7 +49,18 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :content, :image)
     end
 
+    def get_blog
+      @blog = Blog.find(params[:blog_id])
+    end
+
     def get_article
-    @article = Article.find(params[:id])
+    @article = @blog.articles.all
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to root_path
+      end
     end
 end
