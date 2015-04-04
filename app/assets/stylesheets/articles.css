@@ -15,7 +15,11 @@ body {
   padding-left: 8%;
   font-size: 45px;
 }
-
+.main .main-page-heading {
+  margin: 40px auto;
+  padding-top: 0;
+  margin-left: 6%;
+}
 .login-box {
 }
 
@@ -27,15 +31,118 @@ body {
   background-color: #009999;
   opacity: 0.4;
 }
-.menu {
-  margin-left: 90%;
-}
-#navbar .menu-link {
-  color: black;
+.logo { 
+  color: #ffffff;
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  font-size: 40px;
+  font-weight: bold;
   text-decoration: none;
 }
+.logo:hover {
+  color: #ff0000;
+}
+.menu {
+  margin-left: 80%;
+}
+#navbar .menu-link {
+  position: relative;
+  top: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#navbar .menu-link:hover {
+  color: #ff0000;
+}
+.right-box {
+  float: right;
+  margin-right: 15%;
+}
+.search-box {
+  margin-top: 20px;
+  width: 250px;
+  height: 60px;
+  font-size: 40px;
 
+}
+.browser {
+  margin-left: 10%;
+  float: left;
+  width: 600px;
+  height: 400px;
+  border-radius: 10px;
+  border: 2px solid #777777;
+}
+.window {
+  position: relative;
+  margin: 10px auto;
+  width: 580px;
+  height: 380px;
+  border-radius: 10px;
+  border: 2px solid #777777;
+}
+.window .www {
+  position: relative;
+  margin: 20px auto;
+  width: 540px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid #777777;
+}
+.www p {
+  margin: 4.5px 0 0 5px;
+  padding: 0 0 0 0;
 
+}
+.window .content {
+  position: relative;
+  margin: 0 auto;
+  width: 540px;
+  height: 280px;
+  border-radius: 10px;
+  border: 2px solid #777777;
+}
+.mini-nav {
+  position: relative;
+  height: 25px ;
+  background-color: #009999;
+  opacity: 0.4;
+}
+.mini-logo {
+  position: relative;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 5px;
+  padding-top: 2px;
+}
+.mini-main {
+  position: relative;
+  height: 100px;
+  background-color: #009999;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+ }
+.mini-content {
+  margin-top: 15px;
+  position: relative;
+  color: #ffffff;
+  font-size: 10px;
+  font-family: Palatino, "New York", serif;
+}
+.mini-story {
+  position: relative;
+  text-align: center;
+}
+.example_image {
+  position: relative;
+  margin-left: 40px;
+}
 .message {
  
 }
@@ -135,7 +242,7 @@ form {
   height: 300px;
 }
 .login {
-  margin-top: 130px;
+  margin-top: 70px;
   margin-left: 20%;
 }
 .signup-link {

@@ -1,17 +1,35 @@
 <div class="main">
-  <%= form_tag root_path, method: :get do %>
-    <p>
-      <%= text_field_tag :search, params[:search], placeholder: 'Find your friend', type: :search, class: 'search-box' %>
-      <%= submit_tag 'Submit', name: nil, class: 'login-button' %>
-    </p>
-  <% end %>
+  <h1 class="main-page-heading">Create Your Own Blog!</h1>
+  <div class="browser">
+    <div class="window">
+      <div class="www">
+        <p>www.boiling-castle-2832.herokuapp.com</p>
+      </div>
+      <div class="content">
+        <div class='mini-nav'>
+          <div class='mini-logo'>Blog</div>
+        </div>
+        <div class="mini-main">
+          <div class='message'><br>Jongmin's Blog!</div>
+          <div class="mini-content">Welcome to Jongmin's Travel Blog!</div>
+        </div>
+        <div class-"mini-story">
+        <br>
+          <%= image_tag("mini-pic.png", alt: "Example image", width: '150', height: '100', class: 'example-image') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-box">
+    <%= form_tag root_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Type friend's name & visit his blog", type: :search, class: 'search-box' %>
+      <%= submit_tag 'Submit', name: nil, class: 'login-button' %><br><br>
+   <% end %>
   <% unless @users.nil? %>
     <% @users.each do |user| %>
-      <%= link_to user.name, blog_articles_path(@blog) %><br>
+      &nbsp;&nbsp;&nbsp;<%= link_to user.name, blog_articles_path(@blog), class: 'signup-link' %><br>
     <% end %>
-
   <% end %>
-
   <div class="login-box">
     <div class="login">
       <%= simple_form_for (:session) do |f| %>
@@ -22,6 +40,7 @@
       <% end %>
     </div>
   </div>
-    <p>This is the first Rails application Jongmin created on his own. The purpose of this blog is to practice Ruby on Rails and HTML/CSS skills. The blog includes pictures and travel stories. You can leave comments on each post. Hope you enjoy it.</p>
+  </div>
+    
 </div>
 

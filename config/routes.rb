@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   post '/blogs/:id/articles/new' => 'articles#create'
   post '/' => 'sessions#create'
   delete '/' => 'sessions#destroy'
+  get '/about' => 'users#about'
+  get '/contact' => 'users#contact'
 
 
   root 'users#index'

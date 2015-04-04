@@ -8,9 +8,12 @@
 </head>
 <body>
   <nav id="navbar">
+    <%= link_to 'Blog', root_path, class: 'logo' %>
     <section class="menu">
+      <%= link_to 'About', about_path, class: 'menu-link' %>
+      <%= link_to 'Contact', contact_path, class: 'menu-link' %> 
       <% if logged_in? %>
-        <%= link_to 'log out', root_path, method: :delete, class: 'menu-link' %>
+        <%= link_to 'Logout', root_path, method: :delete, class: 'menu-link' %>
       <% else %>
       <% end %>
     </section>
@@ -22,8 +25,6 @@
   <%= yield %>
   <footer>
     <p>
-      <%= link_to 'About', '#', class: 'footer-el' %>
-      <%= link_to 'Contact', '#', class: 'footer-el' %> 
       @2015 Jongmin's Travel Blog
     </p>
   </footer>
