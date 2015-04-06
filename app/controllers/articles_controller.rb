@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     else
       @article = @blog.articles.new(article_params)
         if @article.save
-          flash[:alert] = "An article is successfully created."
+          flash[:alert] = "Post successfully created."
           redirect_to blog_articles_path(@blog)
         else
           render 'new'
@@ -44,8 +44,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    flash[:danger] = "Deleted"
-    redirect_to articles_path
+    flash[:danger] = "Post successfully deleted"
+    redirect_to blog_articles_path(@blog)
     
   end
 
@@ -59,7 +59,8 @@ class ArticlesController < ApplicationController
     end
 
     def get_article
-    @article = @blog.articles.all
+      @blog = Blog.find(params[:blog_id])
+      @article = @blog.articles.find(params[:id])
     end
 
     def logged_in_user

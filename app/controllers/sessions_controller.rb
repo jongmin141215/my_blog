@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         redirect_to @user
       end
     else
-      flash.now[:danger] = 'Invalid email/passowrd combination'
+      flash[:danger] = 'Invalid email/passowrd combination'
       redirect_to root_path
     end
   end

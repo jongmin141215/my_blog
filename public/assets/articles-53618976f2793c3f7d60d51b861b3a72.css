@@ -76,18 +76,36 @@ body {
   height: 400px;
   border-radius: 10px;
   border: 2px solid #777777;
+  background-color: #eeeeee;
+}
+.circle1, .circle2, .circle3 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 3px;
+}
+.circle1 {
+  background-color: #ff0000;
+}
+.circle2 {
+  background-color: #ffff00;
+}
+.circle3 {
+  background-color: #00ff00;
 }
 .window {
   position: relative;
-  margin: 10px auto;
+  margin: 0 auto 10px auto;
   width: 580px;
-  height: 380px;
+  height: 370px;
   border-radius: 10px;
   border: 2px solid #777777;
+  background-color: #ffffff;
 }
 .window .www {
   position: relative;
-  margin: 20px auto;
+  margin: 15px auto;
   width: 540px;
   height: 30px;
   border-radius: 10px;
@@ -102,7 +120,7 @@ body {
   position: relative;
   margin: 0 auto;
   width: 540px;
-  height: 280px;
+  height: 290px;
   border-radius: 10px;
   border: 2px solid #777777;
 }
@@ -139,12 +157,28 @@ body {
   position: relative;
   text-align: center;
 }
-.example_image {
+.browser .window .mini-story .example_image {
   position: relative;
-  margin-left: 40px;
+}
+.mini-title {
+  font-size: 11px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.mini-content2 {
+  font-size: 10px;
+  width: 255px;
+  word-wrap: break-word;
+  margin: 2px auto;
+  line-height: 110%;
+}
+.mini-message {
+
 }
 .message {
- 
+ margin-left: 15px;
+ margin-top: 10px; 
+ padding-top: 10px;
 }
 
 
@@ -187,7 +221,7 @@ body {
 .button:hover {
   background-color: #ffdd22;
 }
-#big_container {
+.big_container {
   margin: 100px auto;
   width: 500px;
   word-wrap: break-word;
@@ -210,16 +244,15 @@ body {
   margin-bottom: 15px;
 }
 footer {
-  height: 100px;
+  height: 70px;
   background-color: #dddddd;
-  margin: 20px -10px -30px -10px;
+  margin: 50px -10px -30px -10px;
 }
 footer p {
   padding-top: 10px;
   text-align: center;
 }
 .footer-el {
-  text-decoration: none;
   margin: 0 15px;
 }
 form {
@@ -265,6 +298,13 @@ form {
 
 .article-title {
   margin-bottom: 15px;
+}
+
+.about {
+  margin: 40px auto;
+  text-align: center;
+  width: 600px;
+  word-wrap: break-word;
 }
 
 
