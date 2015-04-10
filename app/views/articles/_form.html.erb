@@ -1,8 +1,9 @@
 <%= simple_form_for [@blog, @article], html: {class: 'form'} do |f| %>
-    <%= f.input :title %><br />
-    <%= f.input :content %><br />
-    <%= f.label :image %><br />
-    <%= f.file_field :image %><br />
-    <%= f.button :submit, 'Creat a Post' %><br />
+    <%= f.input :title %><br>
+    <%= f.label :image %><br>
+    <%= image_tag @article.image_url(:thumb), class: 'picture' %><br>
+    <%= f.file_field :image %><br>
+    <%= f.input :content %><br>
+    <%= f.button :submit %><br>
 <% end %>
 <%= link_to 'Back', blog_articles_path(@blog) %>

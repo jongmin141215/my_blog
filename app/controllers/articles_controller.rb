@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, only: [:create, :update, :destroy]
-  before_action :get_blog, only: [:index, :new, :create]
+  before_action :get_blog
   before_action :get_article, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -59,7 +59,6 @@ class ArticlesController < ApplicationController
     end
 
     def get_article
-      @blog = Blog.find(params[:blog_id])
       @article = @blog.articles.find(params[:id])
     end
 

@@ -6,14 +6,19 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @user = User.find(session[:user_id])
+    if @user.nil?
+      flash[:danger] = 'Please log in.'
+      redirect_to root_path
+    end
     @comment = @article.comments.new
   end
 
   def create
-    @comment = @article.comments.create(secure_params)
+    @comment = @article.comments.create(comment_params)
     @comment.save
 
-    redirect_to articles_path
+    redirect_to blog_articles_path(@blog)
   end
 
   def update
@@ -25,9 +30,10 @@ class CommentsController < ApplicationController
   private
     def get_article
       @article = Article.find(params[:article_id])
+      @blog = @article.blog
     end
 
-    def secure_params
+    def comment_params
       params.require(:comment).permit(:commenter, :body)
     end
 

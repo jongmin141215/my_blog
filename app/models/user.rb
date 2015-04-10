@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 5 }
   has_secure_password
   has_one :blog
+  has_many :comments
 
   def self.search(query)
     where("name like ?", "%#{query}%")

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
   def index
+    if logged_in?
+      @user = User.find(session[:user_id])
+      @blog = @user.blog
+    end
     if params[:search].present?
       @users = User.search(params[:search]).order(created_at: :desc)
       @blog = Blog.find_by(user_id: @users[0].id)

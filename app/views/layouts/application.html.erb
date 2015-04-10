@@ -15,10 +15,17 @@
       <% if logged_in? %>
         <%= link_to 'Logout', root_path, method: :delete, class: 'menu-link' %>
       <% else %>
+        <%= link_to 'Login', root_path, class: 'menu-link' %> 
       <% end %>
     </section>
   </nav>
+  <div class="with-flash">
+   <div class="message">
+    <%= flash[:alert] %>
+    <%= flash[:danger] %>
+   </div>
   <%= yield %>
+  </div>
   <footer>
     <p>
       @2015 Jongmin's Travel Blog

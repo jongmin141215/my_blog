@@ -1,8 +1,4 @@
 <div class="main">
-  <div class="message">
-    <%= flash[:alert] %>
-    <%= flash[:danger] %>
-   </div>
   <h1 class="main-page-heading">Create Your Own Blog!</h1>
   <div class="browser">
     <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div>
@@ -37,13 +33,23 @@
     <% end %>
   <% end %>
   <div class="login-box">
+    <% if logged_in? %>
+      &nbsp;&nbsp;<%= @current_user.name %>, now you're logged in.<br><br>
+       &nbsp;&nbsp;
+       <% if @current_user.blog %>
+        <%= link_to 'Visit your blog.', blog_articles_path(@blog) %> 
+       <% else %>
+        <%= link_to 'Create your blog', user_path(@user) %>
+       <% end %>
+    <% else %>
     <div class="login">
       <%= simple_form_for (:session) do |f| %>
       <%# not sure about (:session) %>
         <%= f.input :email %>
         <%= f.input :password %>
-        <%= f.button :submit, 'Log In', class: 'login-button' %> <%=   %> <%= link_to "Sign Up", new_user_path, class: 'signup-link' %> 
+        <%= f.button :submit, 'Log In', class: 'login-button' %> <%=   %> <%= link_to "Sign Up", new_user_path, class: 'signup-link' %>
       <% end %>
+    <% end %>
     </div>
   </div>
   </div>
