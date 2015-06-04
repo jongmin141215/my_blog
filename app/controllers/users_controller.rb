@@ -5,9 +5,14 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
       @blog = @user.blog
     end
-    if params[:search].present?
+    if params[:search].present? && User.search(params[:search])
       @users = User.search(params[:search]).order(created_at: :desc)
-      @blog = Blog.find_by(user_id: @users[0].id)
+      if @users.any?
+        @blog = Blog.find_by(user_id: @users[0].id)
+      else
+        flash[:search] = "No results found"
+        redirect_to root_path
+      end
     end
   end
 

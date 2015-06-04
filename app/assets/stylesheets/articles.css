@@ -8,21 +8,41 @@ body {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 .main {
-  height: 570px;
+  margin: 10px auto;
 }
 .main h1 {
-  padding-top: 70px;
-  padding-left: 8%;
-  font-size: 45px;
-}
-.main .main-page-heading {
-  margin: 0 auto 30px auto;
-  padding-top: ;
-  margin-left: 6%;
-}
-.login-box {
+  padding-top: 50px;
+  font-size: 3.5em;
+  margin-bottom: 30px;
+  margin-left: 8%;
 }
 
+
+/* login */
+
+.login-box {
+  margin: 150px -10px;
+  height: 300px;
+  background-color: #0077cc;
+}
+.login {
+  padding-top: 60px;
+  text-align: center;
+   
+}
+
+.right-box {
+  position: relative;
+  margin-right: 8%;
+  float: right;
+
+
+}
+.search-box {
+  margin-top: 20px;
+  width: 250px;
+  
+}
 /* navigation bar */
 
 #navbar {
@@ -59,28 +79,32 @@ body {
 #navbar .menu-link:hover {
   color: #ff0000;
 }
-.right-box {
-  float: right;
-  margin-right: 15%;
-}
-.search-box {
-  margin-top: 20px;
-  width: 250px;
-  
 
-}
+
+
+
+
+
+
+
+/* main page image */
+
 .browser {
-  margin-left: 10%;
-  float: left;
+  margin: 0 auto;
   width: 600px;
   height: 400px;
   border-radius: 10px;
   border: 2px solid #777777;
   background-color: #eeeeee;
+  margin-left: 8%;
+  float: left;
 }
 .circle1, .circle2, .circle3 {
-  width: 10px;
-  height: 10px;
+  position: relative;
+  top: 1px;
+  left: 5px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   display: inline-block;
   margin: 0 3px;
@@ -113,7 +137,7 @@ body {
 }
 .www p {
   margin: 4.5px 0 0 5px;
-  padding: 0 0 0 0;
+  font-size: 1.6em;
 
 }
 .window .content {
@@ -128,6 +152,8 @@ body {
   position: relative;
   height: 25px ;
   background-color: #009999;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   opacity: 0.4;
 }
 .mini-logo {
@@ -179,8 +205,16 @@ body {
   position: absolute;
   top: 30px;
   left: 10px;
-  
 }
+.example-image {
+  width: 150px;
+  height: 100px;
+}
+
+
+
+
+
 .with-flash {
   position: relative;
 }
@@ -251,7 +285,7 @@ body {
 footer {
   height: 70px;
   background-color: #dddddd;
-  margin: 50px -10px -30px -10px;
+  
 }
 footer p {
   padding-top: 10px;
@@ -266,12 +300,19 @@ form {
 .simple_form_for {
  
 }
+
+
+
+
+/* form */
+
 .form-control {
   width: 500px;
   border: 2px solid #dddddd;
   font-size: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
+ 
 }
 .text {
   font-size: 16px;
@@ -279,10 +320,7 @@ form {
 #article_content {
   height: 300px;
 }
-.login {
-  margin-top: 70px;
-  margin-left: 20%;
-}
+
 .signup-link {
   text-decoration: none;
   font-size: 15px;
@@ -319,3 +357,88 @@ form {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .main .main-heading {
+    margin-left: 0;
+    padding-left: 0;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 1.6em;
+    margin: 0  0 15px -10px;
+   }
+  .browser {
+    margin-left: -3px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #777777;
+  }
+  .circle1, .circle2, .circle3 {
+    top: -7px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    margin-right: -2px;
+    margin-bottom: 0px;
+  }
+  .window {
+    margin: -9px auto 10px auto;
+    width: 290px;
+    height: 186px;
+    border: 1px solid #777777;
+  }
+  .window .www {
+    margin: 6px auto;
+    width: 280px;
+    height: 10px;
+    border-radius: 10px;
+    border: 1px solid #777777;
+  }
+  .www p {
+    position: relative;
+    top: -2px;
+    margin: 1px 0 5px 2px;
+    font-size: 0.5em;
+  }
+  .window .content {
+    width: 280px;
+    height: 157px;
+    border: 1px solid #777777;
+    overflow: hidden;
+  }
+  .mini-nav {
+    height: 15px ;
+  }
+  .mini-logo {
+    font-size: 12px;
+    margin-left: 6px;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .mini-main {
+    height: 60px; 
+    font-size: 15px;
+   }
+  .mini-content {
+    margin-top: 1px;
+    font-size: 8px;
+  }
+  .mini-title {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .mini-content2 {
+    font-size: 6px;
+    width: 255px;
+    word-wrap: break-word;
+    margin: 1px auto;
+    line-height: 100%;
+  }
+  .login-box {
+    margin: 80px -10px;
+    height: 250px;
+    background-color: #0077cc;
+  }
+
+
+
+}

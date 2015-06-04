@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get 'blogs/new'
   #get '/blogs/:id' => 'articles#index'
+  get '/login' => "sessions#new"
+  post '/login' => 'sessions#create'
+  delete '/' => 'sessions#destroy'
 
   resources :blogs do 
     resources :articles do 
@@ -12,12 +15,8 @@ Rails.application.routes.draw do
   resources :users, except: :index
   post '/blogs/new' => 'blogs#create'
   post '/blogs/:id/articles/new' => 'articles#create'
-  post '/' => 'sessions#create'
-  delete '/' => 'sessions#destroy'
   get '/about' => 'users#about'
   get '/contact' => 'users#contact'
-
-
   root 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

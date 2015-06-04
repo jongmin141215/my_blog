@@ -10,12 +10,11 @@
   <nav id="navbar">
     <%= link_to 'Blog', root_path, class: 'logo' %>
     <section class="menu">
-      <%= link_to 'About', about_path, class: 'menu-link' %>
-      <%= link_to 'Contact', contact_path, class: 'menu-link' %> 
+      
       <% if logged_in? %>
         <%= link_to 'Logout', root_path, method: :delete, class: 'menu-link' %>
       <% else %>
-        <%= link_to 'Login', root_path, class: 'menu-link' %> 
+        <%= link_to 'Login', login_path, class: 'menu-link' %> 
       <% end %>
     </section>
   </nav>
@@ -26,11 +25,13 @@
    </div>
   <%= yield %>
   </div>
+  <%#
   <footer>
     <p>
-      @2015 Jongmin's Travel Blog
+      <%= link_to 'About', about_path, class: 'footer-el' %>
+  <%#    <%= link_to 'Contact', contact_path, class: 'footer-el' %> 
+  <%#    @2015 Jongmin's Travel Blog
     </p>
-  </footer>
-  <%= debug(params) if Rails.env.development? %>
+  </footer>  %>
 </body>
 </html>

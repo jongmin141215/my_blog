@@ -6,10 +6,12 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @user = User.find(session[:user_id])
-    if @user.nil?
+    if logged_in?
+      @user = User.find(session[:user_id])
+    else 
       flash[:danger] = 'Please log in.'
       redirect_to root_path
+      
     end
     @comment = @article.comments.new
   end

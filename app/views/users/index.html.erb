@@ -1,7 +1,12 @@
 <div class="main">
-  <h1 class="main-page-heading">Create Your Own Blog!</h1>
+  <h1 class="main-heading">Create Your Own Blog!</h1>
   <div class="browser">
-    <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div>
+    <div class="circle1">
+    </div>
+    <div class="circle2">
+    </div>
+    <div class="circle3">
+    </div>
     <div class="window">
       <div class="www">
         <p>www.boiling-castle-2832.herokuapp.com</p>
@@ -13,46 +18,31 @@
         <div class="mini-main">
           <div><br>Jongmin's Blog!</div>
           <div class="mini-content">Welcome to Jongmin's Travel Blog!</div>
-        </div>
-        <div class="mini-story">
-          <div class="mini-title">Diego Rivera's National Palace Mural 03/28/15</div>
-          <%= image_tag("mini-pic.png", alt: "Example image", width: '150', height: '100', class: 'example-image') %>
-        </div>
-          <div class="mini-content2">Today, I visited National Palace near the Zocalo square in Mexico City. In the palace, there were many interesting murals painted by the famous Mexican artist </div>
+      </div>
+      <div class="mini-story">
+        <div class="mini-title">Diego Rivera's National Palace Mural 03/28/15</div>
+        <%= image_tag("mini-pic.png", alt: "Example image", class: 'example-image') %>
+      </div>
+      <div class="mini-content2">
+          Today, I visited National Palace near the Zocalo square in Mexico City. In the palace, there were many interesting murals painted by the famous Mexican artist 
       </div>
     </div>
   </div>
-  <div class="right-box">
+</div>
+<div class="right-box">
+    <h2>Find Your Friend</h2>
     <%= form_tag root_path, method: :get do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Type friend's name & visit his blog", type: :search, class: 'search-box' %>
+      <%= text_field_tag :search, params[:search], placeholder: "Type friend's name", type: :search, class: 'search-box' %>
       <%= submit_tag 'Submit', name: nil, class: 'login-button' %><br><br>
-   <% end %>
-  <% unless @users.nil? %>
-    <% @users.each do |user| %>
-      &nbsp;&nbsp;&nbsp;<%= link_to user.name, blog_articles_path(@blog), class: 'signup-link' %><br>
     <% end %>
-  <% end %>
-  <div class="login-box">
-    <% if logged_in? %>
-      &nbsp;&nbsp;<%= @current_user.name %>, now you're logged in.<br><br>
-       &nbsp;&nbsp;
-       <% if @current_user.blog %>
-        <%= link_to 'Visit your blog.', blog_articles_path(@blog) %> 
-       <% else %>
-        <%= link_to 'Create your blog', user_path(@user) %>
-       <% end %>
-    <% else %>
-    <div class="login">
-      <%= simple_form_for (:session) do |f| %>
-      <%# not sure about (:session) %>
-        <%= f.input :email %>
-        <%= f.input :password %>
-        <%= f.button :submit, 'Log In', class: 'login-button' %> <%=   %> <%= link_to "Sign Up", new_user_path, class: 'signup-link' %>
+    <% unless @users.nil? %>
+      <% @users.each do |user| %>
+        &nbsp;&nbsp;&nbsp;<%= link_to user.name, blog_articles_path(@blog), class: 'signup-link' %><br>
       <% end %>
     <% end %>
-    </div>
-  </div>
-  </div>
-    
+    <%= flash[:search] %>
 </div>
+ 
+
+  
 
